@@ -162,15 +162,15 @@ class Database
 
         $numberOfProductNames = sizeof($resultCount);
 
-        $numberofProducts = 0;
+        $numberOfProducts = 0;
         foreach ($resultCount as $value) {
-            $numberofProducts += $value;
+            $numberOfProducts += $value;
         }
 
         $dataPoints = [];
 
         foreach ($resultCount as $key => $value) {
-            $percent = ($numberOfProductNames/$numberofProducts) * $value;
+            $percent = ($numberOfProductNames/$numberOfProducts) * $value;
             $dataPoints[] = ["y" => $percent, "label" => $key];
         }
 
