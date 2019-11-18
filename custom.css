@@ -1,0 +1,65 @@
+body {
+    background-color: #eaeaea;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 1vh;
+}
+
+header {
+    visibility: hidden;
+}
+
+.btn-nav {
+    margin: 1vh 1vh 1vh 1vh;
+}
+
+.toast-wrapper {
+    position: fixed;
+    min-height: 200px;
+    z-index: 9999;
+}
+
+.toast-position {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#loadData {
+    visibility: hidden;
+    margin: 0 0 20vh 0 !important;
+}
+
+.a-red {
+    color: red !important;
+}
+
+#tablePicker {
+    margin: 1vh 1vh 1vh 1vh;
+}
+
+#collapseChart {
+    z-index: 5;
+}
+
+
+#chartContainer {
+    height: 25rem;
+    max-width: 80rem;
+    margin: 1vh auto;
+}
+
+.filePicker {
+    width: 10rem;
+}
+
+.input-left {
+    text-align: start !important;
+}
+
+/*@media screen and (max-width: 440px) {*/
+
+/*}*/
+
