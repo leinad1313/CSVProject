@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . "/Classes/Factory.php";
+<?php require_once __DIR__ . "/classes/Factory.php";
 
 
 $factory = new Factory();
@@ -79,14 +79,18 @@ HTML;
                             setTimeout(function () {
 
                                 var chart = new CanvasJS.Chart("chartContainer", {
-                                    // theme: "theme2",
                                     title: {
                                         text: "Artikel"
+                                    },
+                                    axisY:{
+                                        minimum: 0,
+                                        valueFormatString: "#.'%'"
                                     },
                                     data: [
                                         {
                                             type: "column",
-                                            indexLabelPlacement: "inside",
+                                            yValueFormatString: "##0.00\"%\"",
+                                            toolTipContent: "{label} {y}",
                                             dataPoints: <?php echo json_encode($db->createChart(), JSON_NUMERIC_CHECK);?>
                                     }
                                             ]

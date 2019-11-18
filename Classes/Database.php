@@ -147,12 +147,6 @@ class Database
             return $arr2;
         }
 
-        function clean($string)
-        {
-
-            return preg_replace('/[^A-Za-z0-9\-, ]/', '', $string); // Removes special chars.
-        }
-
         $countArray = [];
 
         if ($result) {
@@ -166,12 +160,20 @@ class Database
 
         $resultCount = array_icount_values($countArray);
 
+        $numberOfProductNames = sizeof($resultCount);
+
+        $numberofProducts = 0;
+        foreach ($resultCount as $value) {
+            $numberofProducts += $value;
+        }
 
         $dataPoints = [];
 
         foreach ($resultCount as $key => $value) {
-            $dataPoints[] = array("y" => $value, "label" => clean($key));
+            $percent = ($numberOfProductNames/$numberofProducts) * $value;
+            $dataPoints[] = ["y" => $percent, "label" => $key];
         }
+
 
         return $dataPoints;
     }

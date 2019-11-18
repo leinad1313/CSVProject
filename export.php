@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/Classes/Factory.php";
+require_once __DIR__ . "/classes/Factory.php";
 
 //Starts file export
 

@@ -1,6 +1,6 @@
 <?php
 // File that handles all lazy loading from the Database
-require_once __DIR__ . "/Classes/Factory.php";
+require_once __DIR__ . "/classes/Factory.php";
 
 $factory = new Factory();
 $db = $factory->createDatabase();
