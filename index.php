@@ -5,7 +5,7 @@ $factory = new Factory();
 
 $eo = $factory->createEchoOutput();
 $db = $factory->createDatabase();
-$informationArray = $db->getAllCVSInformation();
+$informationArray = $db->getAllCSVInformation();
 
 
 if (isset($_POST["import"])) {
@@ -19,7 +19,7 @@ if (isset($_POST["import"])) {
 
         $db->uploadCSV($file, $_POST['name']);
 
-       $informationArray = $db->getAllCVSInformation();
+        $informationArray = $db->getAllCSVInformation();
 
         echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
 
