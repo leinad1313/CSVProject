@@ -9,5 +9,5 @@ Hersteller(Varchar), Beschreibung(Varchar), Materialangaben(Varchar), Geschlecht
 Ärmel(Varchar), Bein(Varchar), Kragen(Varchar), Herstellung(Varchar), Taschenart(Varchar), Grammatur(Varchar), Material(Varchar),
 Ursprungsland(Varchar), Bildname(Varchar), TabellenID(Int).
 
-You also need a PHP 7.3 interpreter and at least Node.js 10
+You also need a PHP 7.3 interpreter and at least Node.js 10.
 On the basis of my project setup it may be nedded to rewrite the paths to all files in HTML and javascript context.
