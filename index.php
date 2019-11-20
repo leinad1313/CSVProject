@@ -56,7 +56,7 @@ HTML;
                 <script type='text/javascript' src='node_modules/canvasjs/dist/canvasjs.min.js'></script>
                 <script src="assets/js/html5shiv.min.js"></script>
                 <!--Implementation of my own .js files -->
-                <script type='text/javascript' src='js/CVSSystem.js'></script>
+                <script type='text/javascript' src='js/CSVSystem.js'></script>
                 <script>
                     //Loads chart data from PHP and renders the table
                     var chart = function () {
