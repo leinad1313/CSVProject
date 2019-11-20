@@ -1,5 +1,4 @@
-# CVSProject
-Web project that works with .cvs files.
+# CVSProject -- A web project that works with .cvs files.
 
 For it to work you need the MySQL dump in the 'MySQL dump' Folder.
 
