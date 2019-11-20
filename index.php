@@ -46,17 +46,17 @@ HTML;
             <head>
                 <meta charset="UTF-8">
                 <title>CSV Import/Export</title>
-                <script src="node_modules/popper.js/dist/popper.min.js"></script>
-                <script src="node_modules/jquery/dist/jquery.min.js"></script>
-                <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-                <script type='text/javascript' src='node_modules/canvasjs/dist/canvasjs.min.js'></script>
                 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
                 <link rel="stylesheet" type="text/css" href="custom.css">
                 <link href="assets/style.css" rel="stylesheet">
                 <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+                <script src="node_modules/popper.js/dist/popper.min.js"></script>
+                <script src="node_modules/jquery/dist/jquery.min.js"></script>
+                <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type='text/javascript' src='node_modules/canvasjs/dist/canvasjs.min.js'></script>
                 <script src="assets/js/html5shiv.min.js"></script>
-                <script type='text/javascript' src='js/CVSSystem.js'></script>
                 <!--Implementation of my own .js files -->
+                <script type='text/javascript' src='js/CVSSystem.js'></script>
                 <script>
                     //Loads chart data from PHP and renders the table
                     var chart = function () {
