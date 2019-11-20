@@ -6,9 +6,9 @@ require_once __DIR__ . "/classes/Database.php";
 $factory = new Factory();
 $db = $factory->createDatabase();
 
-if (isset($_POST["limit"], $_POST["start"], $_POST["tableID"], $_POST["edit"])) {
+if (isset($_POST["limit"], $_POST["start"], $_POST["tableID"], $_POST["edit"], $_POST["search"])) {
 
-    $result = $db->createTable($_POST["tableID"]);
+    $result = $db->createTable($_POST["tableID"],  $_POST["search"]);
 
     if ($_POST["edit"] == true) {
         if ($result) {
