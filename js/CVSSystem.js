@@ -51,7 +51,7 @@ function addToast(imagePath, title, message) {
         '      </div>\n' +
         '    </div>').appendTo('#toast-position');
 
-//     $('#' + toastID).toast('show');
+    $('#' + toastID).toast('show');
 //     //Option for deleting Toasts completely
 //     setTimeout(function () {
 //         $('#' + toastID).remove();
