@@ -1,7 +1,6 @@
 # CVSProject -- A web project that works with .cvs files.
 
-For it to work you need the MySQL dump in the 'MySQL dump' Folder.
-If it doesn't work you need to create two MySQL tables one called cvsdata and the other called cvsinformation.
+For it to work you need the MySQL dump in the 'MySQL dump' Folder and edit $this->_conn(mysqli_connect) in the /classes/Database.php. If it doesn't work you need to create two MySQL tables one called cvsdata and the other called cvsinformation.
 
 In the table cvsinformation you add 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).
 
