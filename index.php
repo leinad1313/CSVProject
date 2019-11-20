@@ -21,10 +21,10 @@ if (isset($_POST["import"])) {
 
        $informationArray = $db->getAllCVSInformation();
 
-        echo "<script type='text/javascript'>addToast('/svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
+        echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
 
     } else {
-        echo "<script type='text/javascript'>addToast('/svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
+        echo "<script type='text/javascript'>addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
     }
 }
 
@@ -46,16 +46,16 @@ HTML;
             <head>
                 <meta charset="UTF-8">
                 <title>CSV Import/Export</title>
-                <script src="/node_modules/popper.js/dist/popper.min.js"></script>
-                <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-                <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-                <script type='text/javascript' src='/node_modules/canvasjs/dist/canvasjs.min.js'></script>
-                <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-                <link rel="stylesheet" type="text/css" href="/custom.css">
-                <link href="/assets/style.css" rel="stylesheet">
-                <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-                <script src="/assets/js/html5shiv.min.js"></script>
-                <script type='text/javascript' src='/js/CVSSystem.js'></script>
+                <script src="node_modules/popper.js/dist/popper.min.js"></script>
+                <script src="node_modules/jquery/dist/jquery.min.js"></script>
+                <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script type='text/javascript' src='node_modules/canvasjs/dist/canvasjs.min.js'></script>
+                <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+                <link rel="stylesheet" type="text/css" href="custom.css">
+                <link href="assets/style.css" rel="stylesheet">
+                <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+                <script src="assets/js/html5shiv.min.js"></script>
+                <script type='text/javascript' src='js/CVSSystem.js'></script>
                 <!--Implementation of my own .js files -->
                 <script>
                     //Loads chart data from PHP and renders the table
@@ -71,7 +71,7 @@ HTML;
                         document.getElementsByTagName('header')[0].style.visibility = 'visible';
 
                         if(!tableID) {
-                            addToast('/svg/delete.svg', 'Kann Chartdarstellung nicht laden!', 'Bitte wählen sie eine Tabelle aus.');
+                            addToast('svg/delete.svg', 'Kann Chartdarstellung nicht laden!', 'Bitte wählen sie eine Tabelle aus.');
                             return
                             }
 
@@ -175,7 +175,7 @@ HTML;
         <footer>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
           <a class="navbar-brand" href="#">
-            <img src="/svg/Microsoft_Excel_Logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="svg/Microsoft_Excel_Logo.svg" width="30" height="30" class="d-inline-block align-top" alt="">
             Importer Exporter
             </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -184,7 +184,7 @@ HTML;
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav">
                 <button class="btn btn-dark rounded btn-nav" type="button" data-toggle="modal" data-target="#CSVImport">CSV Import</button>
-                <button class="btn btn-dark rounded btn-nav" onclick="if(tableID){window.location ='/export.php?id='+tableID}"> CSV Export</button>
+                <button class="btn btn-dark rounded btn-nav" onclick="if(tableID){window.location ='export.php?id='+tableID}"> CSV Export</button>
                 <button class="btn btn-dark rounded btn-nav" type="button" onclick="
                 createTableAjax(1);
                 ">Edit Mode</button>

@@ -16,7 +16,7 @@ class Database
 
     protected function checkDatabase(): void
     {
-        if (!$this->_conn = mysqli_connect("localhost", "root", "", "cvs")) {
+        if (!$this->_conn = mysqli_connect("vmdbws10.mainz.interexa.de:33056", "dmuench", "dmuench", "cvs")) {
             die("
             <link rel='stylesheet' type='text/css' href='/node_modules/bootstrap/dist/css/bootstrap.css'>
             <div class='alert alert-danger' role='alert'>
@@ -84,7 +84,7 @@ class Database
         }
         else {
             //Not working for now
-            return
+            return;
         }
         $result = mysqli_query($this->_conn, $query);
         $this->_conn->close();

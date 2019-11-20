@@ -25,26 +25,6 @@ var edit;
  */
 var onOff;
 
-/**
- * Validates if the given file is a .csv file and if not displays a warning
- */
-jQuery(
-    function () {
-        $("#CSVImport").on(
-            "submit",
-            function () {
-                var fileType = ".csv";
-                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+("
-                    + fileType + ")$");
-                if (!regex.test($("#file").val().toLowerCase())) {
-                    $('#error').append('<a class="a-red">Bitte laden sie nur .csv Dateien hoch!</a>');
-                    addToast('/svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')
-                    return false;
-                }
-                return true;
-            });
-    });
-
 
 /**
  * Fucntion that adds toats with given image, message and title
@@ -79,6 +59,27 @@ function addToast(imagePath, title, message) {
 
 }
 
+/**
+ * Validates if the given file is a .csv file and if not displays a warning
+ */
+jQuery(
+    function () {
+        $("#CSVImport").on(
+            "submit",
+            function () {
+                var fileType = ".csv";
+                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+("
+                    + fileType + ")$");
+                if (!regex.test($("#file").val().toLowerCase())) {
+                    $('#error').append('<a class="a-red">Bitte laden sie nur .csv Dateien hoch!</a>');
+                    addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')
+                    return false;
+                }
+                return true;
+            });
+    });
+
+
 //Adds the filename to the file upload after selecting one
 function addFileName(name) {
     $('#fileLabel').children('a').remove();
@@ -104,10 +105,10 @@ function loadData(limit, start, tableID, edit, search) {
         success: function (data) {
             $('#loadData').append(data);
             if (data === '') {
-                addToast('/svg/delete.svg', 'Keine Daten gefunden!', 'Keine Daten mehr vorhanden.');
+                addToast('svg/delete.svg', 'Keine Daten gefunden!', 'Keine Daten mehr vorhanden.');
                 action = 'active';
             } else {
-                addToast('/svg/check.svg', 'Daten wurden erfolgreich geladen', 'Sie können nun mit den geladenen Daten arbeiten.');
+                addToast('svg/check.svg', 'Daten wurden erfolgreich geladen', 'Sie können nun mit den geladenen Daten arbeiten.');
                 action = 'inactive'
             }
         }
@@ -270,9 +271,9 @@ function SaveRowData(button) {
         cache: false,
         success: function (data) {
             if (data === '') {
-                addToast('/svg/check.svg', 'Daten wurden erfolgreich gespeichert', 'Sie können nun mit den gespeicherten Daten arbeiten.');
+                addToast('svg/check.svg', 'Daten wurden erfolgreich gespeichert', 'Sie können nun mit den gespeicherten Daten arbeiten.');
             } else {
-                addToast('/svg/delete.svg', 'Daten konnten nicht übertragen werden!', 'Bitte versuchen sie die Daten erneut zu speichern.');
+                addToast('svg/delete.svg', 'Daten konnten nicht übertragen werden!', 'Bitte versuchen sie die Daten erneut zu speichern.');
             }
         }
     });
