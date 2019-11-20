@@ -84,7 +84,7 @@ class Database
         }
         else {
             //Not working for now
-            return
+            return;
         }
         $result = mysqli_query($this->_conn, $query);
         $this->_conn->close();
