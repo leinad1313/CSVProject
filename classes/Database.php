@@ -16,7 +16,7 @@ class Database
 
     protected function checkDatabase(): void
     {
-        if (!$this->_conn = mysqli_connect("vmdbws10.mainz.interexa.de:33056", "dmuench", "dmuench", "cvs")) {
+        if (!$this->_conn = mysqli_connect("vmdbws10.mainz.interexa.de:33056", "dmuench", "dmuench", "csv")) {
             die("
             <link rel='stylesheet' type='text/css' href='/node_modules/bootstrap/dist/css/bootstrap.css'>
             <div class='alert alert-danger' role='alert'>
@@ -37,13 +37,13 @@ class Database
         $date = date('Y-m-d H:i:s');
         $this->checkDatabase();
 
-        $sqlInsert = "INSERT INTO cvsinformation (Tabellenname, Datum) values ('{$name}', '{$date}')";
+        $sqlInsert = "INSERT INTO csvinformation (Tabellenname, Datum) values ('{$name}', '{$date}')";
         $result = mysqli_query($this->_conn, $sqlInsert);
 
         $last_id = $this->_conn->insert_id;
 
         while (($column = fgetcsv($file, 100000, ";", '"', "/")) !== FALSE) {
-            $sqlInsert = "INSERT into cvsdata (TabellenID ,Hauptartikelnr, Artikelname, Hersteller, Beschreibung, Materialangaben, Geschlecht, Produktart, Ärmel, Bein, Kragen, Herstellung, Taschenart, Grammatur, Material, Ursprungsland, Bildname)
+            $sqlInsert = "INSERT into csvdata (TabellenID ,Hauptartikelnr, Artikelname, Hersteller, Beschreibung, Materialangaben, Geschlecht, Produktart, Ärmel, Bein, Kragen, Herstellung, Taschenart, Grammatur, Material, Ursprungsland, Bildname)
                    values ('" . $last_id . "','" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "','" . $column[7] . "','" . $column[8] . "','" . $column[9] . "','" . $column[10] . "','" . $column[11] . "','" . $column[12] . "','" . $column[13] . "','" . $column[14] . "','" . $column[15] . "')";
             mysqli_query($this->_conn, $sqlInsert);
 
@@ -52,15 +52,16 @@ class Database
 
     }
 
+
     /**
      * @return array
      */
-    public function getAllCVSInformation(): array
+    public function getAllCSVInformation(): array
     {
 
         $this->checkDatabase();
         $this->_conn->begin_transaction(MYSQLI_TRANS_START_READ_ONLY);
-        $query = "SELECT * FROM cvsinformation";
+        $query = "SELECT * FROM csvinformation";
         $result = mysqli_query($this->_conn, $query)->fetch_all();
         $this->_conn->close();
 
@@ -80,7 +81,7 @@ class Database
         $this->_conn->begin_transaction(MYSQLI_TRANS_START_READ_ONLY);
 
         if (!$search) {
-            $query = "SELECT * FROM cvsdata WHERE TabellenID = '{$tableID}' ORDER BY 'Hauptartikelnr' DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
+            $query = "SELECT * FROM csvdata WHERE TabellenID = '{$tableID}' ORDER BY 'Hauptartikelnr' DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
         }
         else {
             //Not working for now
@@ -102,7 +103,7 @@ class Database
         $this->checkDatabase();
 
 
-        $sqlInsert = "UPDATE cvsdata SET Artikelname = '{$saveArray[1]}', Hersteller = '{$saveArray[2]}', Beschreibung = '{$saveArray[3]}',
+        $sqlInsert = "UPDATE csvdata SET Artikelname = '{$saveArray[1]}', Hersteller = '{$saveArray[2]}', Beschreibung = '{$saveArray[3]}',
                    Materialangaben = '{$saveArray[4]}', Geschlecht = '{$saveArray[5]}', Produktart = '{$saveArray[6]}', Ärmel = '{$saveArray[7]}', Bein = '{$saveArray[8]}', Kragen = '{$saveArray[9]}'
                    , Herstellung = '{$saveArray[10]}', Taschenart = '{$saveArray[11]}', Grammatur = '{$saveArray[12]}', Material = '{$saveArray[13]}', Ursprungsland = '{$saveArray[14]}', Bildname = '{$saveArray[15]}'
                    WHERE TabellenID = '{$saveArray[16]}' AND Hauptartikelnr = '{$saveArray[0]}'";
@@ -120,7 +121,7 @@ class Database
     {
 
         $this->checkDatabase();
-        return $result = $this->_conn->query("SELECT * FROM cvsdata WHERE TabellenID = '{$id}' ORDER BY Hauptartikelnr DESC");
+        return $result = $this->_conn->query("SELECT * FROM csvdata WHERE TabellenID = '{$id}' ORDER BY Hauptartikelnr DESC");
 
     }
 
@@ -131,7 +132,7 @@ class Database
     {
         $this->checkDatabase();
         $this->_conn->begin_transaction(MYSQLI_TRANS_START_READ_ONLY);
-        $query = "SELECT Produktart FROM cvsdata WHERE TabellenID = '{$this->_tableID}'";
+        $query = "SELECT Produktart FROM csvdata WHERE TabellenID = '{$this->_tableID}'";
         $result = mysqli_query($this->_conn, $query);
         $this->_conn->close();
 
