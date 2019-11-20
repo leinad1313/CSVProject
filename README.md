@@ -10,4 +10,4 @@ Hersteller(Varchar), Beschreibung(Varchar), Materialangaben(Varchar), Geschlecht
 Ursprungsland(Varchar), Bildname(Varchar), TabellenID(Int).
 
 You also need a PHP 7.3 interpreter and at least Node.js 10.
-On the basis of my project setup it may be nedded to rewrite the paths to all files in HTML and javascript context.
+On the basis of my webserver setup it may be nedded to rewrite the paths to all files in HTML and javascript context, just remove the / to the paths should work in most cases.
