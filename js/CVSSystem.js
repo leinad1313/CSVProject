@@ -135,7 +135,7 @@ function createTableAjax(isEdit) {
     /**
      * @type{int}
      */
-    var limit = 20;
+    var limit = 30;
 
     /**
      * @type {string}
