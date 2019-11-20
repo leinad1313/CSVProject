@@ -1,4 +1,4 @@
-# CVSProject -- A web project that works with .cvs files.
+# CSVProject -- A web project that works with .csv files.
 
 Dependencies:
 PHP 7.3, 
