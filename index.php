@@ -197,6 +197,9 @@ HTML;
                 </select>
             </div>
           </div>
+          <input class="input-group-text text-left input-search" type="search" placeholder="WIP" name="search" id="search" onchange="
+            createTableAjax(edit);
+          ">
         </nav>
         </footer>
         </body>
