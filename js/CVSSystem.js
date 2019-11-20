@@ -157,6 +157,13 @@ function createTableAjax(isEdit) {
     } else {
         document.getElementsByTagName('table')[0].style.visibility = 'visible';
     }
+    
+   if(isEdit == true) {
+        document.getElementsByTagName('main')[0].style.display = 'inline';
+    }
+    else {
+        document.getElementsByTagName('main')[0].style.display = 'flex';
+    }
 
     action = 'inactive';
 
