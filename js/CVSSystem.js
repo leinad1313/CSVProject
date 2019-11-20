@@ -21,11 +21,6 @@ var edit;
 
 
 /**
- * @var {int}
- */
-var toastID = 1;
-
-/**
  * @type {boolean}
  */
 var onOff;
@@ -76,11 +71,11 @@ function addToast(imagePath, title, message) {
         '      </div>\n' +
         '    </div>').appendTo('#toast-position');
 
-    $('#' + toastID).toast('show');
-    //Option for deleting Toast completely
-    setTimeout(function () {
-        $('#' + toastID).remove();
-    }, 2700)
+//     $('#' + toastID).toast('show');
+//     //Option for deleting Toasts completely
+//     setTimeout(function () {
+//         $('#' + toastID).remove();
+//     }, 2700)
 
 }
 
@@ -99,12 +94,12 @@ function addFileName(name) {
  * @param {string} tableID
  * @param {boolean} edit
  */
-function loadData(limit, start, tableID, edit) {
+function loadData(limit, start, tableID, edit, search) {
 
     $.ajax({
         url: "fetch.php",
         method: "POST",
-        data: {limit: limit, start: start, tableID: tableID, edit: edit},
+        data: {limit: limit, start: start, tableID: tableID, edit: edit, search: search},
         cache: false,
         success: function (data) {
             $('#loadData').append(data);
@@ -133,6 +128,19 @@ function createTableAjax(isEdit) {
     start = 0;
 
     /**
+     * @type {string}
+     */
+    tableID = document.getElementById('tablePicker').options[document.getElementById('tablePicker').selectedIndex].value;
+
+    if (!tableID) {
+        document.getElementsByTagName('table')[0].style.visibility = 'hidden';
+        return;
+    }
+
+    document.getElementsByTagName('table')[0].style.visibility = 'visible';
+
+
+    /**
      * @type{int}
      */
     var limit = 30;
@@ -140,7 +148,9 @@ function createTableAjax(isEdit) {
     /**
      * @type {string}
      */
-    tableID = document.getElementById('tablePicker').options[document.getElementById('tablePicker').selectedIndex].value;
+
+    var search = document.getElementById('search').value;
+
 
     /**
      * @type {HTMLElement}
@@ -151,33 +161,27 @@ function createTableAjax(isEdit) {
         tables[0].parentNode.removeChild(tables[0]);
     }
 
-    if (!tableID) {
-        document.getElementsByTagName('table')[0].style.visibility = 'hidden';
-        return;
-    } else {
-        document.getElementsByTagName('table')[0].style.visibility = 'visible';
-    }
-    
 
     action = 'inactive';
 
     if (action === 'inactive') {
         action = 'active';
-        loadData(limit, start, tableID, edit)
+        loadData(limit, start, tableID, edit, search)
     }
 
     $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() === $(document).height() && action === 'inactive') {
+        if ($(window).scrollTop() + $(window).height() === $(document).height() && action == 'inactive') {
             action = 'active';
             start = start + limit;
             setTimeout(function () {
-                loadData(limit, start, tableID, edit)
-            }, 1000)
+                loadData(limit, start, tableID, edit, search)
+            }, 500)
         }
     });
 
 
 }
+
 
 
 /**
