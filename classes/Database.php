@@ -76,7 +76,7 @@ class Database
     {
         $this->checkDatabase();
         $this->_conn->begin_transaction(MYSQLI_TRANS_START_READ_ONLY);
-        $query = "SELECT * FROM cvsdata WHERE TabellenID = '{$tableID}' ORDER BY Hauptartikelnr DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
+        $query = "SELECT * FROM cvsdata WHERE TabellenID = '{$tableID}' ORDER BY 'Hauptartikelnr' DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
         $result = mysqli_query($this->_conn, $query);
         $this->_conn->close();
         $this->_tableID = $tableID;
