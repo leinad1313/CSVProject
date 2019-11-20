@@ -11,6 +11,14 @@ header {
     visibility: hidden;
 }
 
+main {
+display: flex;
+flex-direction: column; 
+justify-content: center; 
+align-items: center; 
+align-content: center;
+}
+
 .btn-nav {
     margin: 1vh 1vh 1vh 1vh;
 }
