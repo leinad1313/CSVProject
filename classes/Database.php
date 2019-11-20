@@ -68,15 +68,24 @@ class Database
     }
 
 
+
     /**
      * @param string $tableID
+     * @param string $search
      * @return bool|mysqli_result
      */
-    public function createTable(string $tableID)
+    public function createTable(string $tableID, string $search)
     {
         $this->checkDatabase();
         $this->_conn->begin_transaction(MYSQLI_TRANS_START_READ_ONLY);
-        $query = "SELECT * FROM cvsdata WHERE TabellenID = '{$tableID}' ORDER BY 'Hauptartikelnr' DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
+
+        if (!$search) {
+            $query = "SELECT * FROM cvsdata WHERE TabellenID = '{$tableID}' ORDER BY 'Hauptartikelnr' DESC LIMIT {$_POST['start']}, {$_POST['limit']}";
+        }
+        else {
+            //Not working for now
+            return
+        }
         $result = mysqli_query($this->_conn, $query);
         $this->_conn->close();
         $this->_tableID = $tableID;
