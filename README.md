@@ -1,10 +1,10 @@
 # CVSProject -- A web project that works with .cvs files.
 
 Dependencies:
-PHP 7.3
-Bootstrap 4.3.1
-Popper.js 1.16.0
-Javascript (JQuery) 3.4.1
+PHP 7.3, 
+Bootstrap 4.3.1, 
+Popper.js 1.16.0, 
+Javascript (JQuery) 3.4.1, 
 Canvasjs 1.8.1
 
 For it to work you need the MySQL dump in the 'MySQL dump' Folder and edit $this->_conn(mysqli_connect) in the 
