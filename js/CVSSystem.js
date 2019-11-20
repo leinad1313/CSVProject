@@ -158,12 +158,6 @@ function createTableAjax(isEdit) {
         document.getElementsByTagName('table')[0].style.visibility = 'visible';
     }
     
-   if(!isEdit) {
-        document.getElementsByTagName('main')[0].style.display = 'flex';
-    }
-    else {
-        document.getElementsByTagName('main')[0].style.display = 'inline';
-    }
 
     action = 'inactive';
 
