@@ -8,12 +8,12 @@ Javascript (JQuery) 3.4.1,
 Canvasjs 1.8.1
 
 You need the MySQL dump in the 'MySQL dump' Folder and edit $this->_conn(mysqli_connect) in the 
-/classes/Database.php. If it doesn't work you need to create two MySQL tables one called cvsdata and the other 
-called cvsinformation.
+/classes/Database.php. If it doesn't work you need to create two MySQL tables one called csvdata and the other 
+called csvinformation.
 
-In the table cvsinformation you add 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).
+In the table csvinformation you add 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).
 
-For the table cvsdata you create 17 colums in following order:  Hauptartikelnr(Varchar), Artikelname(Varchar)
+For the table csvdata you create 17 colums in following order:  Hauptartikelnr(Varchar), Artikelname(Varchar)
 , Hersteller(Varchar), Beschreibung(Varchar), Materialangaben(Varchar), Geschlecht(Varchar), Produktart(Varchar)
 , Ärmel(Varchar), Bein(Varchar), Kragen(Varchar), Herstellung(Varchar), Taschenart(Varchar), Grammatur(Varchar)
 , Material(Varchar), Ursprungsland(Varchar), Bildname(Varchar), TabellenID(Int).
