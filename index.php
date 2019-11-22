@@ -7,27 +7,6 @@ $eo = $factory->createEchoOutput();
 $db = $factory->createDatabase();
 $informationArray = $db->getAllCSVInformation();
 
-
-if (isset($_POST["import"])) {
-
-    $fileName = $_FILES["file"]["tmp_name"];
-
-    if ($_FILES["file"]["size"] > 0) {
-
-        $file = fopen($fileName, "r");
-        fgetcsv($file);
-
-        $db->uploadCSV($file, $_POST['name']);
-
-        $informationArray = $db->getAllCSVInformation();
-
-        echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
-
-    } else {
-        echo "<script type='text/javascript'>addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
-    }
-}
-
 $selectOptions = '';
 
 foreach ($informationArray as $infos) {
@@ -204,5 +183,24 @@ HTML;
         </footer>
         </body>
 
+ <?php               
 
+if (isset($_POST["import"])) {
 
+    $fileName = $_FILES["file"]["tmp_name"];
+
+    if ($_FILES["file"]["size"] > 0) {
+
+        $file = fopen($fileName, "r");
+        fgetcsv($file);
+
+        $db->uploadCSV($file, $_POST['name']);
+
+        $informationArray = $db->getAllCSVInformation();
+
+        echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
+
+    } else {
+        echo "<script type='text/javascript'>addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
+    }
+}
