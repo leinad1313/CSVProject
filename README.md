@@ -7,7 +7,7 @@ Popper.js 1.16.0,
 Javascript (JQuery) 3.4.1, 
 Canvasjs 1.8.1
 
-First create a database called csv in MySQL then import the dump I provided. You also need to edit $this->_conn(mysqli_connect) in the /classes/Database.php.
+Firstly create a database called csv in MySQL then import the dump I provided. You also need to edit $this->_conn(mysqli_connect) in the /classes/Database.php.
 
 On the basis of my webserver setup it may be nedded to rewrite the paths to all files in HTML and javascript context.
 
