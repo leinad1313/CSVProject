@@ -150,6 +150,41 @@ HTML;
                     </thead>
                     </table>
             </main>
+                
+<?php
+
+                if (isset($_POST["import"])) {
+
+                    $fileName = $_FILES["file"]["tmp_name"];
+
+                    if ($_FILES["file"]["size"] > 0) {
+
+                        $file = fopen($fileName, "r");
+                        fgetcsv($file);
+
+                        $db->uploadCSV($file, $_POST['name']);
+
+                        echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
+
+                        $informationArray = $db->getAllCSVInformation();
+
+                        $selectOptions = '';
+
+                        foreach ($informationArray as $infos) {
+
+                            $selectOptions .= <<<HTML
+                            <option value="{$infos['2']}">{$infos['0']} {$infos['1']}</option>
+HTML; 
+                        }
+
+
+                    } else {
+                        echo "<script type='text/javascript'>addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
+                    }
+                }
+
+?>
+                
 <!-- Defines the Navbar at the bottom -->
         <footer>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
@@ -182,25 +217,3 @@ HTML;
         </nav>
         </footer>
         </body>
-
- <?php               
-
-if (isset($_POST["import"])) {
-
-    $fileName = $_FILES["file"]["tmp_name"];
-
-    if ($_FILES["file"]["size"] > 0) {
-
-        $file = fopen($fileName, "r");
-        fgetcsv($file);
-
-        $db->uploadCSV($file, $_POST['name']);
-
-        $informationArray = $db->getAllCSVInformation();
-
-        echo "<script type='text/javascript'>addToast('svg/check.svg', 'CSV Upload erfolgreich!', 'Sie haben ihre CSV Datei erfolgreich geuploaded.')</script>";
-
-    } else {
-        echo "<script type='text/javascript'>addToast('svg/delete.svg', 'Ups!', 'Upload fehlgeschlagen, bitte versuche es erneut.')</script>";
-    }
-}
