@@ -26,7 +26,6 @@ HTML;
                 <meta charset="UTF-8">
                 <title>CSV Import/Export</title>
                 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
-                <link rel="stylesheet" type="text/css" href="custom.css">
                 <link href="assets/style.css" rel="stylesheet">
                 <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
                 <script src="node_modules/popper.js/dist/popper.min.js"></script>
@@ -34,7 +33,8 @@ HTML;
                 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
                 <script type='text/javascript' src='node_modules/canvasjs/dist/canvasjs.min.js'></script>
                 <script src="assets/js/html5shiv.min.js"></script>
-                <!--Implementation of my own .js files -->
+                <!--Implementation of my own .js and. css files -->
+                <link rel="stylesheet" type="text/css" href="custom.css">
                 <script type='text/javascript' src='js/CSVSystem.js'></script>
                 <script>
                     //Loads chart data from PHP and renders the table
