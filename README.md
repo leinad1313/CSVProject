@@ -11,7 +11,9 @@ Firstly create a database called csv in MySQL then import the dump I provided. Y
 	
 On the basis of my webserver setup it may be nedded to rewrite the paths to all files in HTML and javascript context.	
 
-----Table information----
+--------------------------
+# Table information	
+	
 In the table csvinformation you add 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).	
 
 For the table csvdata you create 17 colums in following order:  Hauptartikelnr(Varchar), Artikelname(Varchar)
