@@ -7,16 +7,16 @@ Popper.js 1.16.0,
 Javascript (JQuery) 3.4.1, 	
 Canvasjs 1.8.1	
 
-Firstly create a database called csv in MySQL then import the dump I provided. You also need to edit $this->_conn(mysqli_connect) in the /classes/Database.php.
-	
-On the basis of my webserver setup it may be nedded to rewrite the paths to all files in HTML and javascript context.	
+Create a database called csv in MySQL then import the dump I provided. You also need to edit $this->_conn(mysqli_connect) in the /classes/Database.php.
+
+I set this up on an XAMPP Server so there can be issues with paths and related elements.
 
 --------------------------
-# Table information	
+# Table information (only needed if an import was unsuccessful)	
 	
-In the table csvinformation you add 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).	
+In the table csvinformation are 3 columns: Tabellenname(Varchar), Datum(Datetime), TabellenID(Int, Primary, AI).	
 
-For the table csvdata you create 17 colums in following order:  Hauptartikelnr(Varchar), Artikelname(Varchar)
+Table csvdata 17 colums in following order:  Hauptartikelnr(Varchar), Artikelname(Varchar)
 , Hersteller(Varchar), Beschreibung(Varchar), Materialangaben(Varchar), Geschlecht(Varchar), Produktart(Varchar)
 , Ärmel(Varchar), Bein(Varchar), Kragen(Varchar), Herstellung(Varchar), Taschenart(Varchar), Grammatur(Varchar)
 , Material(Varchar), Ursprungsland(Varchar), Bildname(Varchar), TabellenID(Int).	
